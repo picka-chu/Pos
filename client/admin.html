@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VelvetPOS - Admin Dashboard</title>
+    <link rel="stylesheet" href="/client/css/styles.css">
+    <link rel="stylesheet" href="/client/css/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="admin-page">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="store-logo" id="storeLogo">
+                <svg viewBox="0 0 50 50" fill="none">
+                    <circle cx="25" cy="25" r="22" stroke="currentColor" stroke-width="2"/>
+                    <path d="M25 10C25 10 15 18 15 28C15 35 20 40 25 40C30 40 35 35 35 28C35 18 25 10 25 10Z" fill="currentColor" opacity="0.3"/>
+                </svg>
+            </div>
+            <h2 class="store-name" id="storeName">Velvet Beauty</h2>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-page="dashboard">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7"/>
+                    <rect x="14" y="3" width="7" height="7"/>
+                    <rect x="14" y="14" width="7" height="7"/>
+                    <rect x="3" y="14" width="7" height="7"/>
+                </svg>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-item" data-page="inventory">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+                <span>Inventory</span>
+            </a>
+            <a href="#" class="nav-item" data-page="pos">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                    <line x1="8" y1="21" x2="16" y2="21"/>
+                    <line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+                <span>Point of Sale</span>
+            </a>
+            <a href="#" class="nav-item" data-page="customers">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+                <span>Customers</span>
+            </a>
+            <a href="#" class="nav-item" data-page="staff">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+                <span>Staff</span>
+            </a>
+            <a href="#" class="nav-item" data-page="reports">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="20" x2="18" y2="10"/>
+                    <line x1="12" y1="20" x2="12" y2="4"/>
+                    <line x1="6" y1="20" x2="6" y2="14"/>
+                </svg>
+                <span>Reports</span>
+            </a>
+            <a href="#" class="nav-item" data-page="settings">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                </svg>
+                <span>Settings</span>
+            </a>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar" id="userAvatar">A</div>
+                <div class="user-details">
+                    <span class="user-name" id="userName">Admin User</span>
+                    <span class="user-role" id="userRole">Administrator</span>
+                </div>
+            </div>
+            <button class="btn-logout" id="logoutBtn" title="Logout">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                    <polyline points="16 17 21 12 16 7"/>
+                    <line x1="21" y1="12" x2="9" y2="12"/>
+                </svg>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Dashboard View -->
+        <div class="dashboard-view" id="dashboardView">
+            <div class="view-header">
+                <h1>Dashboard</h1>
+                <div class="date-range">
+                    <select id="dateRange">
+                        <option value="7">Last 7 Days</option>
+                        <option value="14">Last 14 Days</option>
+                        <option value="30" selected>Last 30 Days</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon sales">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <span class="stat-label">Total Sales</span>
+                        <span class="stat-value" id="totalSales">$0.00</span>
+                        <span class="stat-change positive">+12.5% vs last period</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon transactions">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                            <line x1="1" y1="10" x2="23" y2="10"/>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <span class="stat-label">Transactions</span>
+                        <span class="stat-value" id="totalTransactions">0</span>
+                        <span class="stat-change positive">+8.3% vs last period</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon average">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <span class="stat-label">Avg. Transaction</span>
+                        <span class="stat-value" id="avgTransaction">$0.00</span>
+                        <span class="stat-change positive">+3.8% vs last period</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon products">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                            <line x1="3" y1="6" x2="21" y2="6"/>
+                            <path d="M16 10a4 4 0 0 1-8 0"/>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <span class="stat-label">Products Sold</span>
+                        <span class="stat-value" id="productsSold">0</span>
+                        <span class="stat-change positive">+15.2% vs last period</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dashboard-grid">
+                <div class="dashboard-card sales-chart-card">
+                    <div class="card-header">
+                        <h3>Sales Overview</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card top-products-card">
+                    <div class="card-header">
+                        <h3>Top Products</h3>
+                        <a href="#" class="view-all" data-page="reports">View All</a>
+                    </div>
+                    <ul class="top-products-list" id="topProductsList">
+                        <!-- Loaded dynamically -->
+                    </ul>
+                </div>
+                
+                <div class="dashboard-card recent-transactions-card">
+                    <div class="card-header">
+                        <h3>Recent Transactions</h3>
+                    </div>
+                    <ul class="recent-transactions-list" id="recentTransactionsList">
+                        <!-- Loaded dynamically -->
+                    </ul>
+                </div>
+                
+                <div class="dashboard-card inventory-alerts-card">
+                    <div class="card-header">
+                        <h3>Inventory Alerts</h3>
+                    </div>
+                    <ul class="inventory-alerts-list" id="inventoryAlertsList">
+                        <li class="alert-item low-stock">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                <line x1="12" y1="9" x2="12" y2="13"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                            <div class="alert-content">
+                                <span class="alert-title">Low Stock Warning</span>
+                                <span class="alert-description">5 products below minimum stock level</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inventory View -->
+        <div class="inventory-view hidden" id="inventoryView">
+            <div class="view-header">
+                <h1>Inventory Management</h1>
+                <button class="btn btn-primary" id="addProductBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                    Add Product
+                </button>
+            </div>
+            
+            <div class="filters-bar">
+                <div class="search-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                    <input type="text" id="inventorySearch" placeholder="Search products...">
+                </div>
+                <select id="inventoryCategoryFilter">
+                    <option value="">All Categories</option>
+                    <option value="Lipstick">Lipstick</option>
+                    <option value="Foundation">Foundation</option>
+                    <option value="Eyeshadow">Eyeshadow</option>
+                    <option value="Skincare">Skincare</option>
+                    <option value="Accessories">Accessories</option>
+                </select>
+                <select id="inventoryStockFilter">
+                    <option value="">All Stock Levels</option>
+                    <option value="low">Low Stock</option>
+                    <option value="out">Out of Stock</option>
+                    <option value="normal">Normal Stock</option>
+                </select>
+            </div>
+            
+            <div class="inventory-table-container">
+                <table class="inventory-table">
+                    <thead>
+                        <tr>
+                            <th>SKU</th>
+                            <th>Product</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inventoryTableBody">
+                        <!-- Loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- POS View (Shared with main POS) -->
+        <div class="pos-view hidden" id="adminPosView">
+            <!-- Same content as main POS view -->
+        </div>
+
+        <!-- Customers View -->
+        <div class="customers-view hidden" id="customersView">
+            <div class="view-header">
+                <h1>Customer Management</h1>
+                <button class="btn btn-primary" id="addCustomerBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                    Add Customer
+                </button>
+            </div>
+            
+            <div class="customers-table-container">
+                <table class="customers-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Loyalty Tier</th>
+                            <th>Points</th>
+                            <th>Total Spent</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customersTableBody">
+                        <!-- Loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Staff View -->
+        <div class="staff-view hidden" id="staffView">
+            <div class="view-header">
+                <h1>Staff Management</h1>
+                <button class="btn btn-primary" id="addStaffBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                    Add Staff
+                </button>
+            </div>
+            
+            <div class="staff-table-container">
+                <table class="staff-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Created</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="staffTableBody">
+                        <!-- Loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Reports View -->
+        <div class="reports-view hidden" id="reportsView">
+            <div class="view-header">
+                <h1>Reports & Analytics</h1>
+                <div class="date-range">
+                    <input type="date" id="reportStartDate">
+                    <span>to</span>
+                    <input type="date" id="reportEndDate">
+                    <button class="btn btn-primary" id="generateReportBtn">Generate Report</button>
+                </div>
+            </div>
+            
+            <div class="reports-grid">
+                <div class="report-card">
+                    <h3>Sales Summary</h3>
+                    <div class="report-stats" id="salesSummaryStats">
+                        <div class="report-stat">
+                            <span class="stat-label">Total Revenue</span>
+                            <span class="stat-value">$0.00</span>
+                        </div>
+                        <div class="report-stat">
+                            <span class="stat-label">Transactions</span>
+                            <span class="stat-value">0</span>
+                        </div>
+                        <div class="report-stat">
+                            <span class="stat-label">Avg. Sale</span>
+                            <span class="stat-value">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="report-card full-width">
+                    <h3>Top Selling Products</h3>
+                    <table class="report-table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Product</th>
+                                <th>Units Sold</th>
+                                <th>Revenue</th>
+                            </tr>
+                        </thead>
+                        <tbody id="topSellingProductsBody">
+                            <!-- Loaded dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="report-card full-width">
+                    <h3>Sales by Category</h3>
+                    <div class="category-breakdown" id="categoryBreakdown">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings View -->
+        <div class="settings-view hidden" id="settingsView">
+            <div class="view-header">
+                <h1>Store Settings</h1>
+                <button class="btn btn-primary" id="saveSettingsBtn">Save Changes</button>
+            </div>
+            
+            <div class="settings-grid">
+                <div class="settings-card">
+                    <h3>Store Information</h3>
+                    <form id="storeInfoForm">
+                        <div class="form-group">
+                            <label for="storeNameInput">Store Name</label>
+                            <input type="text" id="storeNameInput" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="storeCurrency">Currency</label>
+                            <select id="storeCurrency">
+                                <option value="USD">USD - US Dollar</option>
+                                <option value="EUR">EUR - Euro</option>
+                                <option value="GBP">GBP - British Pound</option>
+                                <option value="CAD">CAD - Canadian Dollar</option>
+                                <option value="AUD">AUD - Australian Dollar</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="storeTaxRate">Tax Rate (%)</label>
+                            <input type="number" id="storeTaxRate" step="0.01" min="0" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label for="storeTimezone">Timezone</label>
+                            <select id="storeTimezone">
+                                <option value="America/New_York">Eastern Time</option>
+                                <option value="America/Chicago">Central Time</option>
+                                <option value="America/Denver">Mountain Time</option>
+                                <option value="America/Los_Angeles">Pacific Time</option>
+                                <option value="Europe/London">London</option>
+                                <option value="Europe/Paris">Paris</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="settings-card">
+                    <h3>Branding</h3>
+                    <form id="brandingForm">
+                        <div class="form-group">
+                            <label for="themeColor">Theme Color</label>
+                            <div class="color-picker">
+                                <input type="color" id="themeColorPicker" value="#D4AF37">
+                                <input type="text" id="themeColor" value="#D4AF37">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="logoUrl">Logo URL</label>
+                            <input type="url" id="logoUrl" placeholder="https://...">
+                        </div>
+                        <div class="form-group">
+                            <label for="storeTagline">Tagline</label>
+                            <input type="text" id="storeTagline" placeholder="Your store tagline">
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="settings-card full-width">
+                    <h3>Receipt Settings</h3>
+                    <form id="receiptForm">
+                        <div class="form-group">
+                            <label for="receiptHeader">Receipt Header</label>
+                            <textarea id="receiptHeader" rows="3">Thank you for shopping at Velvet Beauty!</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="receiptFooter">Receipt Footer</label>
+                            <textarea id="receiptFooter" rows="3">We look forward to seeing you again soon!</textarea>
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <label>
+                                <input type="checkbox" id="showLoyaltyPoints" checked>
+                                Show loyalty points on receipt
+                            </label>
+                            <label>
+                                <input type="checkbox" id="showBarcode" checked>
+                                Show barcode on receipt
+                            </label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="productModalTitle">Add Product</h3>
+                <button class="modal-close" id="closeProductModal">&times;</button>
+            </div>
+            <form id="productForm">
+                <input type="hidden" id="productId">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productName">Product Name *</label>
+                        <input type="text" id="productName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productSku">SKU *</label>
+                        <input type="text" id="productSku" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productPrice">Price *</label>
+                        <input type="number" id="productPrice" step="0.01" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productStock">Stock</label>
+                        <input type="number" id="productStock" min="0" value="0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="productCategory">Category</label>
+                    <select id="productCategory">
+                        <option value="General">General</option>
+                        <option value="Lipstick">Lipstick</option>
+                        <option value="Foundation">Foundation</option>
+                        <option value="Eyeshadow">Eyeshadow</option>
+                        <option value="Skincare">Skincare</option>
+                        <option value="Accessories">Accessories</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="productDescription">Description</label>
+                    <textarea id="productDescription" rows="3"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelProductBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="staffModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="staffModalTitle">Add Staff Member</h3>
+                <button class="modal-close" id="closeStaffModal">&times;</button>
+            </div>
+            <form id="staffForm">
+                <input type="hidden" id="staffId">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="staffName">Full Name *</label>
+                        <input type="text" id="staffName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="staffEmail">Email *</label>
+                        <input type="email" id="staffEmail" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="staffPassword">Password *</label>
+                        <input type="password" id="staffPassword">
+                        <small>Leave blank to keep existing password</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="staffRole">Role *</label>
+                        <select id="staffRole">
+                            <option value="staff">Staff</option>
+                            <option value="manager">Manager</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelStaffBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Staff Member</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="customerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="customerModalTitle">Add Customer</h3>
+                <button class="modal-close" id="closeCustomerModal">&times;</button>
+            </div>
+            <form id="customerForm">
+                <input type="hidden" id="customerId">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="customerName">Name *</label>
+                        <input type="text" id="customerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPhone">Phone *</label>
+                        <input type="tel" id="customerPhone" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="customerEmail">Email</label>
+                    <input type="email" id="customerEmail">
+                </div>
+                <div class="form-group">
+                    <label for="customerNotes">Notes</label>
+                    <textarea id="customerNotes" rows="3"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelCustomerBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Customer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+    <script src="/client/js/firebase-config.js"></script>
+    <script src="/client/js/admin.js"></script>
+</body>
+</html>

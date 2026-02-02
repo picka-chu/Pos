@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VelvetPOS - Login</title>
+    <link rel="stylesheet" href="/client/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo-container">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="25" cy="25" r="22" stroke="currentColor" stroke-width="2"/>
+                            <path d="M25 10C25 10 15 18 15 28C15 35 20 40 25 40C30 40 35 35 35 28C35 18 25 10 25 10Z" fill="currentColor" opacity="0.3"/>
+                            <circle cx="25" cy="26" r="4" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h1 class="brand-name">VelvetPOS</h1>
+                </div>
+                <p class="brand-tagline">Cosmetics Retail Management</p>
+            </div>
+
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="remember" name="remember">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full" id="loginBtn">
+                    <span class="btn-text">Sign In</span>
+                    <span class="btn-loader" style="display: none;">
+                        <svg class="spinner" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="31.4 31.4"/>
+                        </svg>
+                    </span>
+                </button>
+
+                <div class="error-message" id="errorMessage" style="display: none;"></div>
+            </form>
+
+            <div class="login-footer">
+                <p class="demo-notice">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 16v-4M12 8h.01"/>
+                    </svg>
+                    Demo Mode: Use any email/password to explore
+                </p>
+            </div>
+        </div>
+
+        <div class="login-features">
+            <h2>Streamline Your Beauty Business</h2>
+            <ul class="feature-list">
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                    <span>Real-time Inventory Tracking</span>
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                    <span>Lightning Fast Checkout</span>
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                    <span>Sales Analytics & Reports</span>
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                    <span>Multi-Store Management</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="/client/js/firebase-config.js"></script>
+    <script src="/client/js/auth.js"></script>
+</body>
+</html>
